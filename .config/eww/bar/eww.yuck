@@ -1,0 +1,73 @@
+(include "bar/widgets/menu.yuck")
+(include "bar/widgets/clock.yuck")
+(include "bar/widgets/music.yuck")
+(include "bar/widgets/workspaces.yuck")
+(include "bar/widgets/tray.yuck")
+(include "bar/widgets/system-stats.yuck")
+(include "bar/widgets/pacman.yuck")
+(include "bar/widgets/volume.yuck")
+(include "bar/widgets/network.yuck")
+(include "bar/widgets/bell.yuck")
+(include "bar/widgets/powermenu.yuck")
+
+;; =================== LEFT WIDGETS =====================
+(defwidget left []
+  (box :space-evenly false :halign "start" :spacing 20
+    ; (menu)
+    (clock)
+    (music)
+  )
+)
+
+;; =================== CENTER WIDGETS =====================
+(defwidget center []
+  (box :space-evenly false :halign "center"
+    (workspaces)
+  )
+)
+
+;; =================== RIGHT WIDGETS =====================
+(defwidget right []
+  (box :space-evenly false :halign "end" :spacing 20
+    (tray)
+    (cpu)
+    (memory)
+    (control)
+    (power)
+  )
+)
+
+;; =================== CONTROL ICONS =====================
+(defwidget control []
+  (box :space-evenly false :class "control" :spacing 15
+    (bell)
+    (pacman)
+    (volume)
+    (network)
+  )
+)
+
+;; =================== BAR WIDGET =====================
+(defwidget bar []
+  (box :class "bar-class"
+    (left)
+    (center)
+    (right)
+  )
+)
+
+;; =================== BAR WINDOW =====================
+(defwindow bar
+  :stacking "fg"
+  :wm-ignore false
+  :exclusive true
+  :windowtype "dock"
+  :monitor 0
+  :geometry (geometry
+    :x "0%"
+    :y "0.4%"
+    :width "99%"
+    :height 30
+  :anchor "top center")
+  (bar)
+)

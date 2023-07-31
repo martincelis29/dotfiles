@@ -1,0 +1,107 @@
+;; =================== POWERMENU WIDGET =====================
+(defwidget powermenu[]
+  (box
+    :class "powermenu"
+    :space-evenly false
+    :spacing 20
+    (box
+      :class "profile"
+      :space-evenly false
+      :orientation "v"
+      :spacing 20
+      (box
+        :class "img"
+        :space-evenly false
+        :orientation "v"
+        :style "background-image: url('${profile-image}');"
+      )
+      (box
+        :class "info"
+        :space-evenly false
+        :orientation "v"
+        :spacing 5
+        (label
+          :class "name"
+          :halign "start"
+          :text profile-name
+        )
+        (label
+          :class "wm"
+          :halign "start"
+          :text wm
+        )
+        (label
+          :class "uptime"
+          :halign "start"
+          :text uptime
+        )
+      )
+    )
+    (box
+      :class "buttons"
+      :orientation "v"
+      :space-evenly false
+      :spacing 20
+      :valign "center"
+      (box
+        :space-evenly false
+        :spacing 20
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class "shutdown"
+            :tooltip "shutdown"
+            :onclick "systemctl poweroff"
+            ""
+          )
+        )
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class "logout"
+            :tooltip "logout"
+            :onclick "hyprctl dispatch exit 0"
+            ""
+          )
+        )
+      )
+      (box
+        :space-evenly false
+        :spacing 20
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class "reboot"
+            :tooltip "reboot"
+            :onclick "systemctl reboot"
+            ""
+          )
+        )
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class "suspend"
+            :tooltip "suspend"
+            :onclick "systemctl suspend"
+            ""
+          )
+        )
+      )
+    )
+  )
+)
+
+;; =================== POWERMENU WINDOW =====================
+(defwindow powermenu
+  :monitor 0
+  :stacking "fg"
+  :wm-ignore false
+  :windowtype "dock"
+  :geometry (geometry
+    :x "0%"
+    :y "0%"
+    :width "30%"
+    :height 0
+  :anchor "center center")
+  (powermenu)
+)

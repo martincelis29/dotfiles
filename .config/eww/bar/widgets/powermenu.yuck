@@ -1,0 +1,14 @@
+;; =================== POWERMENU WIDGET =====================
+(defwidget power []
+  (eventbox
+    :cursor "pointer"
+    :class "power"
+    (button
+      :class "icon"
+      :tooltip "Powermenu"
+      :valign "center"
+      :onclick "${EWW_CMD} close player & ${EWW_CMD} open-many --toggle background-closer powermenu"
+      ""
+    )
+  )
+)

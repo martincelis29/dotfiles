@@ -1,0 +1,173 @@
+* {
+  all: unset;
+  transition: 200ms ease-out;
+}
+
+.player {
+  font-family: "SF Pro", "Font Awesome 6 Pro Solid";
+  //background-color: #121212;
+  //background: linear-gradient(to bottom right, #1e0f47, #121212);
+  min-height: 10px;
+  border: 2px solid #787d9a;
+  border-radius: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 0.5s;
+
+  .header {
+    .art {
+      background-size: 180px;
+      min-height: 180px;
+      min-width: 180px;
+      border-radius: 10px;
+      background-repeat: no-repeat;
+      background-position: center;
+      box-shadow: 0px 5px 23px 2px #0c0c0c;
+      margin: 30px 0 30px 30px;
+      transition: all 0.5s ease-in-out;
+      .button {
+        border-radius: 10px;
+        background-color: transparent;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          transition: all 0.5s;
+          background-color: rgba(8, 8, 8, 0.4);
+        }
+        &:active {
+          transition: all 0.1s;
+          background-color: rgba(8, 8, 8, 0.8);
+        }
+      }
+    }
+    .info {
+      margin: 65px 0px 45px 25px;
+      //padding-right: 30px;
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+      font-size: 14px;
+      .title,
+      .artist {
+        color: $fg;
+        font-weight: 600;
+      }
+      .album {
+        color: $fg-alt;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .middle {
+    .bar {
+      trough highlight {
+        all: unset;
+        background-image: linear-gradient(to right, $fg, $fg);
+        transition: all 1s;
+        &:hover {
+          transition: all 0.3s;
+          background-image: linear-gradient(to right, #1db954, #1db954);
+        }
+      }
+      trough {
+        all: unset;
+        background-color: $gray;
+        box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+        min-height: 5px;
+        min-width: 5px;
+      }
+    }
+  }
+
+  .footer {
+    //background-color: #000000;
+    background-color: rgba(8, 8, 8, 0.55);
+    border-radius: 0px 0px 15px 15px;
+    padding: 10px;
+
+    .volume {
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+      .icon {
+        transition: all 0.5s;
+        color: $fg-alt;
+        font-size: 22px;
+        margin: 0 0 0 10px;
+      }
+      .slider {
+        highlight {
+          all: unset;
+          border-radius: 15px;
+          padding: 2px;
+          background: linear-gradient(to right, $fg, $fg);
+          transition: all 0.5s;
+          &:active {
+            transition: all 0.3s;
+            background-image: linear-gradient(to right, #1db954, #1db954);
+          }
+        }
+        slider {
+          transition: all 0.3s;
+          border-radius: 100%;
+          margin: -5px;
+        }
+        trough {
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+          background-color: $gray;
+          border-radius: 15px;
+        }
+        &:hover {
+          highlight {
+            transition: all 0.3s;
+            background-image: linear-gradient(to right, #1db954, #1db954);
+          }
+          slider {
+            transition: all 0.3s;
+            border-radius: 100%;
+            margin: -5px;
+            background: $fg;
+          }
+        }
+      }
+    }
+    .buttons {
+      font-family: "Ubuntu Nerd Font";
+      padding-left: 0px;
+      text-shadow: 0px 5px 5px rgba(0, 0, 0, 1);
+      .toggle {
+        font-size: 40px;
+        color: $fg;
+        transition: all 0.5s;
+        transition: color 0.3s ease;
+        &:hover {
+          color: #ac74ac;
+          transition: all 0.3s;
+        }
+        &:active {
+          color: #3d293d;
+        }
+      }
+      .previous,
+      .next {
+        font-size: 30px;
+        color: #b3b3b3;
+        transition: all 0.5s;
+        transition: color 0.3s ease;
+        &:hover {
+          color: #ac74ac;
+          transition: all 0.3s;
+        }
+        &:active {
+          color: #3d293d;
+        }
+      }
+    }
+    .time {
+      font-size: 15px;
+      text-shadow: 1px 1px 10px rgba(0, 0, 0, 1);
+      .position {
+        color: $fg-alt;
+        font-weight: 500;
+        margin: 0 10px 0 0;
+      }
+    }
+  }
+}

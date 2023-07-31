@@ -1,0 +1,14 @@
+;; =================== MENU WIDGET =====================
+(defwidget menu []
+  (eventbox
+    :cursor "pointer"
+    (box
+      :class "menu"
+      (button
+        :class "icon"
+        :onclick ""
+        " "
+      )
+    )
+  )
+)

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#start swwww
+swww query || swww init
+
+#set background
+swww img ~/Pictures/tokyo-night24.png --transition-step 230 --transition-fps 60 --transition-type grow --transition-angle 30 --transition-duration 3

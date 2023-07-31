@@ -1,0 +1,159 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 40,
+  "margin-top": 4,
+  "margin-bottom": 2,
+  "margin-left": 10,
+  "margin-right": 10,
+  "modules-left": [
+    "custom/clock-icon",
+    "custom/clock",
+    "custom/clock-AMPM",
+    "custom/date-icon",
+    "custom/date",
+    "image",
+    "custom/spotify"
+  ],
+  "modules-center": ["wlr/workspaces"],
+  "modules-right": [
+    "tray",
+    "custom/cpu-icon",
+    "cpu",
+    "custom/memory-icon",
+    "memory",
+    "pulseaudio",
+    "network",
+    "custom/powermenu"
+  ],
+  // left modules //
+  "custom/launcher": {
+    "format": "<span size='13000'></span>",
+    "on-click": "pkill wofi; wofi --show drun"
+  },
+  "custom/clock-icon": {
+    "format": ""
+  },
+  "custom/clock": {
+    "format": "{}",
+    "interval": 10,
+    "exec": "bash ~/.config/waybar/scripts/clock date"
+  },
+  "custom/clock-AMPM": {
+    "format": "{}",
+    "interval": 60,
+    "exec": "bash ~/.config/waybar/scripts/clock ampm"
+  },
+  "custom/date": {
+    "format": "{}",
+    "interval": 3600,
+    "exec": "bash ~/.config/waybar/scripts/date"
+  },
+  "custom/date-icon": {
+    "format": ""
+  },
+  "image": {
+    "exec": "bash ~/.config/eww/scripts/media cover",
+    "size": 24,
+    "interval": 2,
+    "on-click": "eww close powermenu & eww open-many --toggle background-closer player"
+  },
+  "custom/spotify": {
+    "exec": "bash ~/.config/eww/scripts/media title",
+    "format": "{}",
+    "max-length": 30,
+    "on-click": "playerctl play-pause -p spotify",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+  // center modules //
+  "wlr/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "min-height": 0,
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": []
+    },
+    "format-icons": {
+      "urgent": "",
+      "active": "󰊠",
+      "default": ""
+    }
+  },
+  // right modules //
+  "tray": {
+    "icon-size": 15,
+    "spacing": 15,
+    "reverse-direction": true
+  },
+  "custom/cpu-icon": {
+    "format": ""
+  },
+  "cpu": {
+    "interval": 2,
+    "format": "{usage}%",
+    "tooltip": true,
+    "tooltip-format": "Memory - {used:0.1f}GB used",
+    "max-length": 10
+  },
+  "custom/memory-icon": {
+    "format": ""
+  },
+  "memory": {
+    "interval": 10,
+    "format": " {}%",
+    "max-length": 10
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "󰝟 ",
+    "format-icons": {
+      "phone": ["  ", "  "],
+      "default": ["", ""]
+    },
+    "scroll-step": 2,
+    "on-click": "pavucontrol",
+    "on-click-middle": "pamixer -t",
+    "tooltip": false,
+    "format-alt-click": "click-right",
+    "format-alt": "{icon} {volume}%"
+  },
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": " ",
+    "format-ethernet": "",
+    "format-disconnected": "睊",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 20,
+    "on-click": "gnome-control-center wifi",
+    "format-alt-click": "click-right",
+    "format-alt": " {essid}{ifname}"
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon}",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt-click": "click-right",
+    "format-alt": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
+  },
+  "custom/powermenu": {
+    "format": "",
+    "on-click": "sh -c '(sleep 0.1s; wlogout --protocol layer-shell)' & disown",
+    "tooltip": false
+  }
+}

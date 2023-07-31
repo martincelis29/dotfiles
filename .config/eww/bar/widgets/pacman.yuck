@@ -1,0 +1,29 @@
+;; =================== PACMAN WIDGET =====================
+(defwidget pacman []
+  (eventbox
+    :onhover "${EWW_CMD} update pacman-rev=true"
+    :onhoverlost "${EWW_CMD} update pacman-rev=false"
+    (box
+      :space-evenly false
+      :class "pacman"
+      (button
+        :class "icon"
+        :tooltip "SSD ${round(EWW_DISK["/"].used_perc, 2)}% used"
+        ""
+      )
+      (revealer
+        :transition "slideleft"
+        :reveal pacman-rev
+        :duration "300ms"
+        (box
+          :space-evenly false
+          (label
+            :class "label"
+            :tooltip "SSD ${round(EWW_DISK["/"].used_perc, 2)}% used"
+            :text "${updates}"
+          )
+        )
+      )
+    )
+  )
+)

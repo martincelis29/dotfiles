@@ -1,0 +1,47 @@
+;; =================== SYSTEM STATS WIDGET =====================
+(defwidget cpu []
+  (box
+    :class "cpu"
+    :space-evenly false
+    :spacing 5
+    (circular-progress
+      :value {EWW_CPU.avg}
+      :class "progress"
+      :thickness 4
+      (label
+        :class "inside"
+        :tooltip "CPU ${round(EWW_CPU.avg,1)}%"
+        :text ""
+      )
+    )
+    (label
+      :class "label"
+      :tooltip "CPU ${round(EWW_CPU.avg,1)}%"
+      :text "${round(EWW_CPU.avg,0)}%"
+    )
+  )
+)
+(defwidget memory []
+  (box
+    :class "memory"
+    :space-evenly false
+    :spacing 5
+    (circular-progress
+      :value {EWW_RAM.used_mem_perc}
+      :class "progress"
+      :thickness 4
+      (label
+        :class "inside"
+        ;:tooltip "RAM ${round(EWW_RAM.used_mem / 1048576, 0)}MB"
+        :tooltip "RAM ${round((EWW_RAM.used_mem) / (1024 * 1024 * 1024), 1)}GB"
+        :text ""
+      )
+    )
+    (label
+      :class "label"
+      ;:tooltip "RAM ${round(EWW_RAM.used_mem / 1048576, 0)}MB"
+      :tooltip "RAM ${round((EWW_RAM.used_mem) / (1024 * 1024 * 1024), 1)}GB"
+      :text "${round(EWW_RAM.used_mem_perc,0)}%"
+    )
+  )
+)

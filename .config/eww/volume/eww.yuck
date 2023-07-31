@@ -1,0 +1,33 @@
+(defwidget volume-popup []
+  (box
+    :class "volume-popup"
+    :space-evenly false
+    (label
+      :class "icon"
+      :halign "start"
+      :tooltip "${volume}%"
+      :style {volume == "muted" || volume == 0 ? "color: #dd6777;" : "color: #cacaca;"}
+      :text {volume == 0 || volume == "muted" ? "" :volume < 30 ? "" :volume < 60 ? "" : ""}
+    )
+    (box
+      :class "scale"
+      (scale
+        :min 0
+        :max 101
+        :tooltip "${volume}%"
+        :value {volume == "muted" ? 0 : volume}
+      )
+    )
+  )
+)
+
+
+(defwindow volume
+  :monitor 0
+  :geometry (geometry
+    :x "0%"
+    :y "10%"
+    :width "10%"
+  :anchor "bottom center")
+  (volume-popup)
+)

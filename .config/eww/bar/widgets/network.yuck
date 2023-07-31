@@ -1,0 +1,35 @@
+;; =================== NETWORK WIDGET =====================
+(defwidget network []
+  (eventbox
+    :onhover "${EWW_CMD} update network-rev=true"
+    :onhoverlost "${EWW_CMD} update network-rev=false"
+    (box
+      :class "network"
+      :space-evenly false
+      (eventbox
+        :cursor "pointer"
+        (button
+          :class "icon"
+          :tooltip " ${round(EWW_NET.enp2s0.NET_UP / 1000000, 2)}MB  /   ${round(EWW_NET.enp2s0.NET_DOWN / 1000000, 2)}MB"
+          :onclick "scripts/system.sh network-conf"
+          :style {network == "Offline" ? "color: #dd6777;" : "color: #A39EC4;"}
+          {network == "Offline" ? " " : network == "Ethernet" ? " " : network == "WiFi" ? " " : " "}
+        )
+      )
+      (revealer
+        :transition "slideright"
+        :reveal network-rev
+        :duration "450ms"
+        (box
+          :space-evenly false
+          (label
+            :class "label"
+            :tooltip " ${round(EWW_NET.enp2s0.NET_UP / 1000000, 2)}MB  /   ${round(EWW_NET.enp2s0.NET_DOWN / 1000000, 2)}MB"
+            :text "${network}"
+          )
+        )
+      )
+    )
+  )
+)
+

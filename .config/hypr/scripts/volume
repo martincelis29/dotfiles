@@ -1,0 +1,24 @@
+#!/bin/bash
+
+[[ -z $(pgrep checkvolume) ]] && checkvolume &
+
+# requieres pamixer
+
+case $1 in
+--inc)
+	# Unmute
+	pamixer -u >/dev/null
+	# +2%
+	pamixer -i 5 >/dev/null
+	;;
+--dec)
+	# Unmute
+	pamixer -u >/dev/null
+	# -2%
+	pamixer -d 5 >/dev/null
+	;;
+--toggle)
+	# Toggle mute
+	pamixer -t >/dev/null
+	;;
+esac

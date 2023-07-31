@@ -1,0 +1,56 @@
+;; =================== MUSIC WIDGET =====================
+(defwidget music []
+  (eventbox
+    :onhover "${EWW_CMD} update music-rev=true"
+    :onhoverlost "${EWW_CMD} update music-rev=false"
+    (box
+      :class "music"
+      :space-evenly false
+      :spacing 10
+      (eventbox
+        :cursor "pointer"
+        (transform
+          :scale-x "95%"
+          :scale-y "95%"
+          (button
+            :class "art"
+            :onclick "${EWW_CMD} close powermenu notifications & ${EWW_CMD} open-many --toggle background-closer player"
+            :style "background-image: url('${music-cover}');"
+          )
+        )
+      )
+      (label
+        :class "title"
+        :limit-width 30
+        :tooltip "${music-artist}"
+        :text music-title
+      )
+      (revealer
+        :transition "slideright"
+        :reveal music-rev
+        :duration "500ms"
+        (box
+          :spacing 5
+          (button
+            :class "previous-icon"
+            :tooltip "Previous"
+            :onclick "scripts/media.sh prev"
+            ""
+          )
+          (button
+            :class "toggle-icon"
+            :tooltip "${music-play-pause}"
+            :onclick "scripts/media.sh toggle"
+            "${music-toggle}"
+          )
+          (button
+            :class "next-icon"
+            :tooltip "Next"
+            :onclick "scripts/media.sh next"
+            ""
+          )
+        )
+      )
+    )
+  )
+)

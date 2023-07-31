@@ -1,0 +1,110 @@
+{
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "window.titleBarStyle": "custom",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Ubuntu Nerd Font', 'Material Icons Round'",
+  "tabnine.experimentalAutoImports": true,
+  "editor.fontSize": 14,
+  "editor.mouseWheelZoom": true,
+  "editor.scrollbar.vertical": "visible",
+  "editor.overviewRulerBorder": false,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.guides.indentation": false,
+  "editor.formatOnSave": true,
+  "editor.renderWhitespace": "selection",
+  "editor.renderLineHighlight": "none",
+  "editor.folding": false,
+  "editor.occurrencesHighlight": false,
+  "editor.glyphMargin": false,
+  "workbench.statusBar.visible": false,
+  "workbench.colorCustomizations": {
+    "tab.activeBorder": "#252339"
+  },
+  "editor.fontLigatures": true,
+  "editor.fontVariations": true,
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.lineHeight": 21,
+  "editor.lineNumbers": "on",
+  "breadcrumbs.enabled": false,
+  "workbench.layoutControl.enabled": false,
+  "editor.smoothScrolling": true,
+  "workbench.editor.tabCloseButton": "off",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "indenticator.width": 0.1,
+  "indenticator.color.dark": "rgba(255,255,255,0.30)",
+  "indentRainbow.lightIndicatorStyleLineWidth": 1,
+  "projectManager.sortList": "Name",
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features",
+    "editor.suggest.insertMode": "replace"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "svipas.prettier-plus"
+  },
+  "editor.matchBrackets": "never",
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "redhat.telemetry.enabled": false,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "svg.preview.mode": "svg",
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.enabled": false,
+  "[json]": {
+    "editor.defaultFormatter": "svipas.prettier-plus"
+  },
+  "workbench.colorTheme": "Rosé Pine Moon",
+  "material-icon-theme.activeIconPack": "react_redux",
+  "material-icon-theme.folders.color": "#7E57C2",
+  "material-icon-theme.hidesExplorerArrows": true,
+  "material-icon-theme.opacity": 0.8,
+  "workbench.productIconTheme": "fluent-icons",
+  "terminal.external.linuxExec": "kitty",
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorWidth": 2,
+  "terminal.integrated.tabs.defaultIcon": "terminal-bash",
+  "workbench.editorAssociations": {
+    "*.otb": "default"
+  },
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "window.menuBarVisibility": "toggle",
+  "editor.scrollbar.verticalScrollbarSize": 15,
+  "zenMode.fullScreen": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideTabs": false,
+  "zenMode.silentNotifications": false,
+  "zenMode.hideStatusBar": false,
+  "window.title": "${dirty}${activeEditorShort}",
+  "colorize.languages": [
+    "css",
+    "sass",
+    "scss",
+    "less",
+    "postcss",
+    "sss",
+    "stylus",
+    "xml",
+    "svg",
+    "yuck",
+    "toml"
+  ],
+  "terminal.integrated.env.linux": {}
+}

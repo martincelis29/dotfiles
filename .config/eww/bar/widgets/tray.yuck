@@ -1,0 +1,14 @@
+;; =================== TRAY VARS =====================
+(defwidget tray []
+  (eventbox
+    :cursor "pointer"
+    (box
+      :class "tray"
+      (button
+        :class "icon"
+        :onclick "${EWW_CMD} open background-closer && pkill waybar || waybar -c ~/.config/eww/scripts/waybar-tray/config.jsonc -s ~/.config/eww/scripts/waybar-tray/style.css && scripts/system.sh tray &"
+        ""
+      )
+    )
+  )
+)

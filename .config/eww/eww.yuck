@@ -1,0 +1,71 @@
+;; =================== VARS =====================
+;=================== Clock
+(defvar date-rev false)
+
+;=================== Workspaces
+(deflisten workspaces :initial "[]" "scripts/workspaces.sh getWorkspaces")
+(deflisten current_workspace :initial "1" "scripts/workspaces.sh getCurrentWorkspace")
+
+;=================== Tray
+(defvar tray false)
+
+;=================== Pacman
+(defvar pacman-rev false)
+(defpoll updates :interval "2h" "scripts/system.sh updates")
+
+;=================== Volume
+(defvar volume-rev false)
+(deflisten volume :initial "0" "scripts/volume.sh")
+
+;=================== Network
+(defvar network-rev false)
+(deflisten network "scripts/network.sh")
+
+;=================== Music
+(defvar music-rev false)
+(deflisten music-title "scripts/media.sh title")
+(deflisten music-artist "scripts/media.sh artist")
+(deflisten music-album "scripts/media.sh album")
+(deflisten music-cover "scripts/media.sh follow-cover")
+(deflisten music-toggle "scripts/media.sh icon")
+(deflisten music-play-pause "scripts/media.sh class")
+(deflisten music-total-time-seconds "scripts/media.sh total-time-seconds")
+(deflisten music-current-time-seconds "scripts/media.sh current-time-seconds")
+(deflisten music-current-volume "scripts/media.sh current-volume")
+(deflisten music-current-time "scripts/media.sh current-time")
+(deflisten music-total-time "scripts/media.sh total-time")
+;(deflisten music-background "scripts/media.sh follow-background")
+
+;; =================== Powermenu
+(defvar profile-image "assets/Profile_Picture.jpg")
+(defpoll profile-name :interval "24h" "scripts/system.sh name")
+(defpoll wm :interval "24h" "scripts/system.sh wm")
+(defpoll uptime :interval "1m" "uptime -p | sed -e 's/up //g'")
+
+;=================== Notifications
+(defvar notification-rev false)
+(defvar notifications "{}")
+(defpoll waiting :interval "1s" :initial "0" "dunstctl count waiting")
+(defpoll dnd :interval "1s" :initial "false" "dunstctl is-paused")
+
+
+(include "./bar/eww.yuck")
+(include "./player/eww.yuck")
+(include "./powermenu/eww.yuck")
+(include "./notifications/eww.yuck")
+(include "./volume/eww.yuck")
+;; =================== WIDGET =====================
+(defwidget closer []
+  (eventbox :onclick "${EWW_CMD} close player powermenu notifications background-closer || killall waybar")
+)
+
+;; =================== WINDOW =====================
+(defwindow background-closer
+  :monitor 0
+  :geometry (geometry
+    :width "100%"
+    :height "100%"
+  :anchor "center center")
+  :stacking "fg"
+  (closer)
+)

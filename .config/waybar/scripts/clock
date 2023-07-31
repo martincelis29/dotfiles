@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+Clock="$(LC_TIME=en_US date +'%I : %M')"
+AMPM="$(LC_TIME=en_US date +'%p')"
+
+clock() {
+    echo "$Clock"
+    echo "$AMPM"
+}
+
+case "$1" in
+time)
+    clock | head -n1
+    ;;
+ampm)
+    clock | tail -n1
+    ;;
+esac

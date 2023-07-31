@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+LC_TIME=en_US date +'%b %d'

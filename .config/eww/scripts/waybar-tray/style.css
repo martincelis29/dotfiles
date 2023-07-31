@@ -1,0 +1,26 @@
+* {
+    color: #f3f9ff;
+    font-family: Segoe-Fluent-Icons, Segoe-UI;
+    font-weight: 500;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+tooltip {
+    background: #141414;
+    border-radius: 4px;
+}
+
+#tray {
+    font-size: 40px;
+    font-weight: 200;
+    padding: 4px;
+    margin: 4px 0px 0px 22px;
+    min-width: 100px;
+    min-height: 30px;
+    background: #1F1D2E;
+    border-radius: 12px;
+    border: 2px solid #787D9A;
+}

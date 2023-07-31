@@ -1,0 +1,252 @@
+(defwidget header []
+  (box
+    :class "header"
+    :space-evenly false
+    (overlay
+      :hexpand true
+      (box
+        :class "dnd"
+        :space-evenly false
+        :halign "start"
+        (eventbox
+          :cursor "pointer"
+          (button
+            :onclick "dunstctl set-paused toggle"
+            :style "color: ${dnd ? '#dd6777;' : '#ceb188;'} transition: all 0.6s;"
+            {dnd ? "" : ""}
+          )
+        )
+        (revealer
+          :reveal {dnd || notifications.count == 0 ? false : true}
+          :transition "slideright"
+          (label
+            :class "dnd count"
+            :text {notifications.count}
+          )
+        )
+        (revealer
+          :reveal {waiting == 0 ? false : true}
+          :transition "slideright"
+          (label
+            :class "dnd count"
+            :text waiting
+          )
+        )
+      )
+      (label
+        :class "label"
+        :text "Notifications"
+      )
+      (revealer
+        :reveal {notifications.count == 0 ? false : true}
+        :transition "slideleft"
+        :duration "450ms"
+        :halign "end"
+        :hexpand true
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class "clear"
+            :onclick "scripts/notifications.py --clear"
+            ""
+          )
+        )
+      )
+    )
+  )
+)
+
+(defwidget notif [notification]
+  (box
+    :space-evenly false
+    :orientation "v"
+    (eventbox
+      :onmiddleclick "scripts/notifications.py --rmid ${notification.id}"
+      (box
+        :class "osd"
+        :space-evenly false
+        (box
+          :halign "start"
+          :space-evenly false
+          :spacing 10
+          (label
+            :class "icon"
+            :text {
+            notification.app == "Screenshot" ? "" :
+            notification.app == "Spotify" ? "" :
+            notification.app == "Color Picker" ? "" :
+            notification.app == "discord" ? "" :
+            notification.app == "Updates" ? "󰀨" :
+            notification.app == "Firefox" ? "󰈹" :
+            notification.app == "Pomodoro" ? "󱎫" :
+            notification.app == "NetworkManager Applet" ? "" :
+            ""
+            }
+            :style {
+            notification.app == "Spotify" ? "color: #A6E3A1" :
+            notification.app == "Firefox" ? "color: #BF593F" :
+            notification.app == "discord" ? "color: #A39EC4" :
+            notification.app == "Updates" ? "color: #C5A983" :
+            notification.app == "Pomodoro" ? "color: #684AA0" :
+            "font-size: 1.1rem; color: #f0f0f0"
+            }
+          )
+          (label
+            :class "app"
+            :limit-width 20
+            :text {notification.app}
+          )
+          (label
+            :class "separator"
+            :text ""
+          )
+          (label
+            :class "time"
+            :text {notification.time}
+          )
+        )
+        (box
+          :halign "end"
+          :hexpand true
+          (eventbox
+            :cursor "pointer"
+            (button
+              :class "close"
+              :onclick "scripts/notifications.py --rmid ${notification.id}"
+              ""
+            )
+          )
+        )
+      )
+    )
+    (box
+      :class "content"
+      :style {notification.app == "Screenshot" ? "margin: 1rem" : ""}
+      :orientation {notification.app == "Screenshot" ? "v" : "h"}
+      :space-evenly false
+      :spacing 10
+      (eventbox
+        :cursor {notification.app == "Screenshot" || notification.app == "Spotify" || notification.app == "Color Picker" ? "pointer" : ""}
+        (button
+          :class "image"
+          :style "background-image: url('${notification.image}')"
+          :valign "center"
+          :halign "center"
+          :visible {notification.image != "null"}
+          :width {
+          notification.app == "Screenshot" ? 350 :
+          notification.app == "Spotify" || notification.app == "Color Picker" ? 80 :
+          notification.app == "discord" || notification.app == "Updates" || notification.app == "Firefox" ? 60 : 50
+          }
+          :height {
+          notification.app == "Screenshot" ? 200 :
+          notification.app == "Spotify" || notification.app == "Color Picker" ? 80 :
+          notification.app == "discord" || notification.app == "Updates" || notification.app == "Firefox" ? 60 : 50
+          }
+          :onclick {
+          notification.app == "Screenshot" ? "viewnior '${notification.image}' &" :
+          notification.app == "Spotify" ? "hyprctl dispatch workspace 4" :
+          notification.app == "Color Picker" ? "wl-copy '${notification.summary}'" : ""
+          }
+        )
+      )
+      (box
+        :visible {notification.app == "Screenshot" ? false : true}
+        :orientation "v"
+        :space-evenly false
+        (label
+          :class "summary"
+          :limit-width 30
+          :wrap true
+          :xalign 0
+          :text {notification.summary}
+          :halign "start"
+        )
+        (label
+          :class "body"
+          :limit-width 120
+          :wrap true
+          :xalign 0
+          :text {notification.body}
+          :halign "start"
+        )
+      )
+      (box
+        :class "screenshot buttons"
+        :visible {notification.app == "Screenshot" ? true : false}
+        :spacing 40
+        ; (eventbox
+          ;   :cursor "pointer"
+          ;   (button
+            ;     :class "screenshot open"
+            ;     :onclick "viewnior '${notification.image}' &"
+            ;     :timeout "1s"
+            ;     "Open"
+          ;   )
+        ; )
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class "screenshot open-nautilus"
+            :onclick "nautilus ${notification.image}"
+            :timeout "1s"
+            "Open in Nautilus"
+          )
+        )
+      )
+    )
+  )
+)
+
+(defwidget notifications []
+  (box
+    :class "notifications"
+    :space-evenly false
+    :orientation "v"
+    (header)
+    (scroll :height 800 :vscroll true
+      (box
+        :class "scroll"
+        :orientation "v"
+        :spacing 10
+        :space-evenly "false"
+        (box
+          :visible {arraylength(notifications.notifications) == 0}
+          :class "empty"
+          :valign  "center"
+          :halign "center"
+          :vexpand true
+          :orientation "v"
+          :space-evenly "false"
+          (image
+            :class "bell"
+            :valign "end"
+            :vexpand "true"
+            :path "assets/bell.png"
+            :image-width 100
+            :image-height 100
+          )
+          (label :class "label" :text "No Notifications")
+        )
+        (for notification in {notifications.notifications}
+          (eventbox
+            :class "notification"
+            (notif :notification notification)
+          )
+        )
+      )
+    )
+  )
+)
+
+;; =================== NOTIFICATIONS WINDOW =====================
+(defwindow notifications
+  :monitor 0
+  :geometry (geometry
+    :x "1%"
+    :y "0.5%"
+    :width "25%"
+    :height "0"
+  :anchor "top right")
+  (notifications)
+)

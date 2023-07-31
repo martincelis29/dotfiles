@@ -1,0 +1,157 @@
+;; =================== PLAYER WIDGET =====================
+(defwidget player []
+  (box
+    :class "player"
+    :space-evenly false
+    :orientation "v"
+    :style "background-image:linear-gradient(rgba(18, 18, 18, 0.9)), url('${music-cover}')"
+    (box
+      :class "header"
+      :space-evenly false
+      (box
+        :class "art"
+        :hexpand "false"
+        :vexpand "false"
+        :halign "end"
+        :style "background-image: url('${music-cover}')"
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class "button"
+            :tooltip "Go to Spotify :o"
+            :onclick "hyprctl dispatch workspace 4"
+          )
+        )
+      )
+      (box
+        :class "info"
+        :hexpand "false"
+        :vexpand "false"
+        :space-evenly "false"
+        :orientation "v"
+        :spacing 25
+        (label
+          :class "title"
+          :halign "start"
+          :limit-width 35
+          :tooltip "${music-title}"
+          :text "󰝚   ${music-title}"
+        )
+        (label
+          :class "artist"
+          :halign "start"
+          :limit-width 35
+          :tooltip "${music-artist}"
+          :text "󰠃   ${music-artist}"
+        )
+        (label
+          :class "album"
+          :halign "start"
+          :limit-width 35
+          :tooltip "${music-album}"
+          :text "󰀥   ${music-album}"
+        )
+      )
+    )
+    (box
+      :class "middle"
+      :orientation "h"
+      :space-evenly "true"
+      (scale
+        :class "bar"
+        :min 0
+        :max music-total-time-seconds
+        :value music-current-time-seconds
+        ; :onchange "playerctl position {}"
+      )
+    )
+    
+    (box
+      :class "footer"
+      :space-evenly true
+      :orientation "h"
+      :height 60
+      :spacing 0
+      (box
+        :class "volume"
+        :hexpand false
+        :vexpand false
+        :space-evenly false
+        :spacing 5
+        :halign "start"
+        (label
+          :class "icon"
+          :style {music-current-volume == 0 ? "color: #dd6777;" : "color: $fg-alt;"}
+          :tooltip "${music-current-volume}%"
+          :text {music-current-volume == 0 ? "" : music-current-volume < 30 ? "" : music-current-volume < 60 ? "" : ""}
+        )
+        (scale
+          :class "slider"
+          :width 100
+          :min 0
+          :max 101
+          :orientation "h"
+          :value music-current-volume
+          :tooltip "${music-current-volume}%"
+          :halign "start"
+          :onchange "scripts/media.sh volume {}"
+        )
+      )
+      (box
+        :class "buttons"
+        :space-evenly "false"
+        :hexpand false
+        :vexpand false
+        :space-evenly false
+        :spacing 10
+        :halign "center"
+        (button
+          :class "previous"
+          :tooltip "Previous"
+          :onclick "scripts/media.sh prev"
+          ""
+        )
+        (button
+          :class "toggle"
+          :tooltip "${music-play-pause}"
+          :onclick "scripts/media.sh toggle"
+          music-toggle
+        )
+        (button
+          :class "next"
+          :tooltip "Next"
+          :onclick "scripts/media.sh next"
+          ""
+        )
+      )
+      (box
+        :class "time"
+        :hexpand false
+        :vexpand true
+        :space-evenly false
+        :halign "end"
+        :spacing 5
+        (label
+          :class "position"
+          :text "${music-current-time}  /  ${music-total-time}"
+        )
+      )
+    )
+  )
+)
+
+;; =================== PLAYER WINDOW =====================
+(defwindow player
+  :monitor 0
+  :stacking "fg"
+  :wm-ignore false
+  :windowtype "normal"
+  :geometry (geometry
+    :x "6%"
+    :y "0.5%"
+    :width "550"
+    ;:width 0
+    :height 0
+  :anchor "top left")
+  (player)
+)

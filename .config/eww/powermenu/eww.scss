@@ -1,0 +1,71 @@
+* {
+  all: unset;
+}
+
+.powermenu {
+  // background-color: $bg;
+  background: rgba(15, 14, 18, 0.7);
+  border-radius: 12px;
+  padding: 20px;
+
+  .profile {
+    border-radius: 15px;
+    padding: 20px;
+    .img {
+      border-radius: 15px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      min-height: 200px;
+      min-width: 200px;
+      box-shadow: -1px 1px 10px 5px rgba(0, 0, 0, 0.5);
+    }
+    .info {
+      color: $fg;
+      font-family: "SF Pro";
+      .name {
+        font-size: 30px;
+        font-weight: bold;
+      }
+      .wm {
+        font-size: 20px;
+        margin: 0 0 2px 0;
+      }
+      .uptime {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .buttons {
+    .shutdown,
+    .logout,
+    .reboot,
+    .suspend {
+      font-family: "Font Awesome 6 Free";
+      font-size: 80px;
+      border-radius: 30px;
+      min-width: 130px;
+      min-height: 130px;
+      padding: 20px;
+      background-color: rgba(25, 25, 25, 0.5);
+      transition: all 0.2s;
+      &:hover {
+        transition: all 0.3s;
+        background-color: rgba(38, 38, 38, 0.5);
+      }
+    }
+    .shutdown {
+      color: $red;
+    }
+    .logout {
+      color: $magenta;
+    }
+    .reboot {
+      color: $green;
+    }
+    .suspend {
+      color: $yellow;
+    }
+  }
+}

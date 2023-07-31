@@ -1,0 +1,284 @@
+* {
+  all: unset;
+}
+
+.bar-class {
+  //background: rgba(5, 5, 5, 0.6);
+  background: rgba(15, 14, 18, 0.9);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+scale trough {
+  all: unset;
+  background-color: $black;
+  border-radius: 16px;
+  min-height: 5px;
+  min-width: 80px;
+  margin: 0px 0px 0px 5px;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* =================== LEFT WIDGETS =================== */
+// Menu
+.menu {
+  .icon {
+    color: #803dc0;
+    font-size: 18px;
+    font-family: "Ubuntu Nerd Font";
+    margin: 0 0 0 12px;
+    transition: all 0.1s;
+    transition: color 0.5s ease;
+    &:hover {
+      color: #582c81;
+      transition: all 0.3s;
+    }
+    &:active {
+      color: #29143d;
+    }
+  }
+}
+
+// Clock
+.clock {
+  background-color: $bg-alt;
+  padding: 0 18px 0 20px;
+  border-radius: 10px;
+  .icon {
+    color: #b48ead;
+    font-size: 14px;
+    font-family: "Font Awesome 6 Free";
+    margin: 0 2px 0 0;
+  }
+  .time {
+    color: #b48ead;
+    font-size: 17px;
+    font-family: "Ubuntu Nerd Font";
+    font-weight: bold;
+    margin: 0 2px 0 -1px;
+  }
+  .AMPM {
+    color: #b48ead;
+    font-size: 14px;
+    font-family: "Ubuntu Nerd Font";
+    font-weight: bold;
+    margin: 1px 0 0 -1px;
+  }
+  .date {
+    .icon {
+      color: #8fbcbb;
+      font-size: 15px;
+      font-family: "Font Awesome 6 Free";
+      margin: 0 -2px 0 10px;
+    }
+    .label {
+      color: #8fbcbb;
+      font-size: 17px;
+      font-family: "Ubuntu Nerd Font";
+      font-weight: bold;
+      margin: 0 4px 0 6px;
+      transition: all 0.1s;
+      transition: color 0.5s ease;
+      // &:hover {
+      //   color: #4d6665;
+      //   transition: all 0.3s;
+      // }
+    }
+  }
+}
+
+// Music
+.music {
+  .art {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 25px;
+    min-width: 30px;
+    border-radius: 20px;
+  }
+  .title {
+    color: #a6e3a1;
+    font-size: 10pt;
+    font-family: "SF Pro";
+    font-weight: bold;
+  }
+  .toggle-icon {
+    font-size: 21px;
+    margin: 0 -2px 0 -2px;
+  }
+  .previous-icon,
+  .next-icon {
+    font-size: 19px;
+  }
+  .previous-icon,
+  .next-icon,
+  .toggle-icon {
+    color: #a6adc8;
+    font-family: "Ubuntu Nerd Font";
+    transition: all 0.5s;
+    transition: color 0.3s ease;
+    &:hover {
+      color: #ac74ac;
+      transition: all 0.3s;
+    }
+    &:active {
+      color: #3d293d;
+    }
+  }
+}
+
+/* =================== CENTER WIDGETS =================== */
+// Workspaces
+.workspaces {
+  color: #313244;
+  font-family: "Ubuntu Nerd Font, Font Awesome 6 Free";
+  // background-color: $bg-alt;
+  border-radius: 10px;
+  transition: all 0.3s;
+  transition: color 0.5s ease;
+  .entry {
+    padding: 7px 10px;
+    &:hover {
+      color: #a6adc8;
+    }
+  }
+  .occupied,
+  .empty {
+    color: #313244;
+    transition: all 0.3s;
+  }
+  .current {
+    color: #a6adc8;
+    transition: all 0.3s;
+  }
+}
+
+/* =================== RIGHT WIDGETS =================== */
+// Tray
+.tray {
+  .icon {
+    color: rgba(5, 5, 5, 0);
+    font-size: 26px;
+    margin: 2px 0 0 0;
+    transition: all 0.1s;
+    transition: color 0.5s ease;
+    &:hover {
+      color: #a6adc8;
+      transition: all 0.3s;
+    }
+    &:active {
+      color: #313244;
+    }
+  }
+}
+
+// System Stats
+.cpu {
+  .progress {
+    color: $red;
+    background-color: $black;
+  }
+  .inside {
+    padding: 12px;
+  }
+  .label {
+    color: $fg;
+    font-family: "Ubuntu Nerd Font";
+    font-weight: 500;
+  }
+}
+.memory {
+  .progress {
+    color: $magenta;
+    background-color: $black;
+  }
+  .inside {
+    padding: 12px;
+  }
+  .label {
+    color: $fg;
+    font-family: "Ubuntu Nerd Font";
+    font-weight: 500;
+  }
+}
+
+// Control
+.control {
+  background-color: $bg-alt;
+  padding: 0 18px 0 20px;
+  border-radius: 10px;
+}
+.bell {
+  &.icon {
+    color: $fg-alt;
+    font-size: 14px;
+    font-family: "Ubuntu Nerd Font";
+  }
+}
+.pacman {
+  .icon {
+    color: $yellow;
+    font-family: "Ubuntu Nerd Font";
+    font-size: 16px;
+  }
+  .label {
+    color: $fg;
+    font-size: 15px;
+    font-family: "SF Pro";
+    font-weight: bold;
+    margin: 0 0 0 5px;
+  }
+}
+.volume {
+  .icon {
+    font-size: 20px;
+    font-family: "Ubuntu Nerd Font";
+    transition: all 0.5s;
+  }
+  .bar {
+    trough highlight {
+      background: linear-gradient(#cba6f7, #cba6f7);
+      min-height: 0.3em;
+      border-radius: 10px;
+    }
+    slider {
+      &:hover {
+        background: #cba6f7;
+        border-radius: 100%;
+        margin: -5px;
+      }
+    }
+  }
+}
+.network {
+  .icon {
+    transition: all 0.5s;
+    font-size: 18px;
+    font-family: "Ubuntu Nerd Font";
+  }
+  .label {
+    color: $fg;
+    font-size: 15px;
+    font-family: "SF ";
+    font-weight: bold;
+    margin: 0 0 0 5px;
+  }
+}
+
+// Powermenu
+.power {
+  .icon {
+    color: $red;
+    font-size: 18px;
+    margin: 2px 12px 0 0;
+    transition: all 0.3s;
+    transition: color 0.5s ease;
+    &:hover {
+      color: #91444e;
+    }
+    &:active {
+      color: #53262c;
+    }
+  }
+}

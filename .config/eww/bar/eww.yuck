@@ -63,6 +63,7 @@
   :exclusive true
   :windowtype "dock"
   :monitor 0
+  :namespace "bar"
   :geometry (geometry
     :x "0%"
     :y "0.4%"

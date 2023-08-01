@@ -34,7 +34,6 @@
 (deflisten music-current-volume "scripts/media.sh current-volume")
 (deflisten music-current-time "scripts/media.sh current-time")
 (deflisten music-total-time "scripts/media.sh total-time")
-;(deflisten music-background "scripts/media.sh follow-background")
 
 ;; =================== Powermenu
 (defvar profile-image "assets/Profile_Picture.jpg")

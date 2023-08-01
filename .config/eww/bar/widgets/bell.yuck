@@ -11,7 +11,7 @@
           :onclick "${EWW_CMD} close powermenu player & scripts/notifications.py --open & ${EWW_CMD} open-many --toggle background-closer notifications"
           :onrightclick "dunstctl set-paused toggle"
           :style "color: ${dnd ? '#dd6777;' : '#ceb188;'} transition: all 0.3s;"
-          {dnd ? "" : ""}
+          {dnd ? " " : " "}
         )
       )
     )

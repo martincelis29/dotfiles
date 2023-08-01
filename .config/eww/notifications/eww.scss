@@ -1,7 +1,6 @@
-window > .notifications {
+window>.notifications {
   margin: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  border: 2px solid #787d9a;
   transition: all 0.3s;
 }
 
@@ -10,25 +9,31 @@ window > .notifications {
   background-color: rgba(25, 25, 25, 0.8);
   padding: 1.5rem 1rem;
   border-radius: 1rem;
+
   .header {
     font-size: 1.5rem;
     color: $fg;
     margin: 0 1rem 1rem;
+
     .dnd {
       font-family: "Ubuntu Nerd Font";
       transition: all 0.3s;
       font-size: 1.4rem;
+
       &.count {
         font-size: 1.2rem;
         padding-left: 0.3rem;
       }
     }
+
     .label {
       font-weight: bold;
       margin-left: 0.5rem;
     }
+
     .clear {
       transition: all 0.3s;
+
       &:hover {
         transition: all 0.3s;
         color: lighten($color: $red, $amount: 3%);
@@ -40,37 +45,45 @@ window > .notifications {
     background-color: rgba(30, 30, 30, 0.5);
     border-radius: 1rem;
     transition: all 0.3s;
+
     &:hover {
       transition: all 0.3s;
       background-color: lighten($color: rgba(30, 30, 30, 0.5), $amount: 5%);
     }
+
     .osd {
       font-size: 1rem;
       background-color: darken($color: rgba(30, 30, 30, 0.5), $amount: 4%);
       border-radius: 1rem 1rem 0 0;
       padding: 0.5rem 1rem;
+
       .icon {
         font-size: 1.2rem;
       }
+
       .app {
         font-weight: 500;
         color: $fg-alt;
       }
+
       .separator {
         font-size: 0.5rem;
         font-weight: 500;
         color: $gray;
       }
+
       .time {
         font-size: 0.9rem;
         font-weight: 500;
         color: $fg-alt;
       }
+
       .close {
         color: $gray;
         margin: 0.2rem 0rem;
         transition: all 0.3s;
         transition: color 0.5s ease;
+
         &:hover {
           color: $red;
         }
@@ -79,6 +92,7 @@ window > .notifications {
 
     .content {
       margin: 1rem;
+
       .image {
         background-repeat: no-repeat;
         background-size: cover;
@@ -86,20 +100,24 @@ window > .notifications {
         border-radius: 1rem;
         box-shadow: 0px 0px 4px 1px rgba(black, 0.3);
       }
+
       .summary {
         font-weight: bold;
         font-size: 1rem;
         padding-bottom: 0.5rem;
         color: $fg;
       }
+
       .body {
         color: $fg;
         font-size: 1rem;
       }
+
       .screenshot {
         font-size: 1rem;
         font-weight: bold;
         margin-bottom: -0.5rem;
+
         .open {
           background-color: darken($color: $green, $amount: 10%);
           color: $bg-alt;
@@ -107,31 +125,29 @@ window > .notifications {
           margin: 0.5rem;
           border-radius: 1rem;
           box-shadow: 0 2px 1px rgba(black, 0.3);
+
           &:hover {
             background-color: lighten($color: $green, $amount: 2%);
           }
         }
+
         .open-nautilus {
-          background-color: rgba(196, 158, 196, 0.8);
+          background-color: $magenta;
           color: $bg-alt;
           padding: 0.5rem;
           margin: 0.5rem;
           border-radius: 1rem;
           box-shadow: 0px 0px 2px 1px rgba(black, 0.3);
           transition: all 0.3s;
+
           &:hover {
             transition: all 0.3s;
-            background-color: darken(
-              $color: rgba(196, 158, 196, 0.8),
-              $amount: 10%
-            );
+            background-color: darken($color: $magenta, $amount: 10%);
           }
+
           &:active {
             transition: all 0.2s;
-            background-color: darken(
-              $color: rgba(196, 158, 196, 0.8),
-              $amount: 50%
-            );
+            background-color: darken($color: $magenta, $amount: 50%);
           }
         }
       }
@@ -140,6 +156,7 @@ window > .notifications {
 
   .empty {
     margin-bottom: 2rem;
+
     .label {
       font-size: 1.5rem;
       font-weight: bold;

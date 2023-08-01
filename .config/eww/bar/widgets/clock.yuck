@@ -9,7 +9,7 @@
       :class "clock"
       (label
         :class "icon"
-        :text ""
+        :text ""
       )
       (label
         :class "time"

@@ -24,6 +24,7 @@
 
 (defwindow volume
   :monitor 0
+  :namespace "volume"
   :geometry (geometry
     :x "0%"
     :y "10%"

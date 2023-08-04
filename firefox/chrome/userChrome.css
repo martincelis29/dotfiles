@@ -35,6 +35,35 @@ toolbox#navigator-toolbox {
   --tabpanel-background-color: var(--ap-color-dp0) !important;
 }
 
+#tabs-newtab-button,
+#new-tab-button {
+  transition: .3s !important;
+  color: transparent !important;
+  fill: FieldText !important;
+  background: none !important;
+  opacity: 20%;
+  padding-right: 20px !important;
+  padding-left: 4px !important;
+  -moz-window-dragging: var(--WindowDraggingFromNewtabButton)
+}
+
+#tabs-newtab-button:hover,
+#new-tab-button:hover {
+  transition: .3s !important;
+  color: transparent !important;
+  fill: FieldText !important;
+  opacity: 90%;
+  padding-right: 20px !important;
+  background: none !important;
+  padding-left: 4px !important;
+  -moz-window-dragging: var(--WindowDraggingFromNewtabButton)
+}
+
+#tabs-newtab-button>.toolbarbutton-icon,
+#new-tab-button>.toolbarbutton-icon {
+  background: none !important;
+}
+
 /* macOS specific styles */
 @media (-moz-platform: macos) {
   #TabsToolbar:not([customizing="true"]) {
@@ -307,7 +336,7 @@ toolbox#navigator-toolbox {
   min-width: 48px;
   max-width: 48px;
   overflow: hidden;
-  border-right: 1px solid var(--sidebar-border-color);
+  border-right: 1px solid #191724;
   z-index: 1;
   top: 0;
   bottom: 0;

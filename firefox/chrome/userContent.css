@@ -143,9 +143,6 @@ url("about:newtab") {
 }
 }
 
-
-
-
 /*  Devtools  */
 @-moz-document url-prefix(about:devtools) {
   #toolbox-container {
@@ -310,7 +307,7 @@ pre {
 }
 
 .toolbox-panel.theme-toolbar {
-  background: transparent !important;
+  background: -moz-Dialog !important;
 }
 
 .splitter {

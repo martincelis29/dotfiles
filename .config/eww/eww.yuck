@@ -4,7 +4,7 @@
 
 ;=================== Workspaces
 (deflisten workspaces :initial "[]" "scripts/workspaces.sh getWorkspaces")
-(deflisten current_workspace :initial "1" "scripts/workspaces.sh getCurrentWorkspace")
+(deflisten current-workspace :initial "1" "scripts/workspaces.sh getCurrentWorkspace")
 
 ;=================== Tray
 (defvar tray false)
@@ -34,6 +34,7 @@
 (deflisten music-current-volume "scripts/media.sh current-volume")
 (deflisten music-current-time "scripts/media.sh current-time")
 (deflisten music-total-time "scripts/media.sh total-time")
+;(deflisten music-background "scripts/media.sh follow-background")
 
 ;; =================== Powermenu
 (defvar profile-image "assets/Profile_Picture.jpg")
@@ -53,9 +54,10 @@
 (include "./powermenu/eww.yuck")
 (include "./notifications/eww.yuck")
 (include "./volume/eww.yuck")
+(include "./calendar/eww.yuck")
 ;; =================== WIDGET =====================
 (defwidget closer []
-  (eventbox :onclick "${EWW_CMD} close player powermenu notifications background-closer || killall waybar")
+  (eventbox :onclick "${EWW_CMD} close player powermenu calendar notifications background-closer || killall waybar")
 )
 
 ;; =================== WINDOW =====================

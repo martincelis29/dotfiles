@@ -1,58 +1,44 @@
-* {
-  all: unset;
-  transition: 200ms ease-out;
-}
-
 .player {
+  @include background;
+  @include rounding;
   min-height: 10px;
-  border-radius: 15px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  transition: all 0.5s;
-
+  transition: all 500ms;
+  border: 1px solid rgba(0, 0, 0, 0.9);
   .header {
     .art {
       background-size: 180px;
       min-height: 180px;
       min-width: 180px;
       border-radius: 10px;
-      background-repeat: no-repeat;
-      background-position: center;
+      @include background;
       box-shadow: 0px 5px 23px 2px $bg;
       margin: 30px 0 30px 30px;
-      transition: all 0.5s ease-in-out;
-
+      transition: all 500ms ease-in-out;
       .button {
         border-radius: 10px;
         background-color: transparent;
-        transition: all 0.3s ease-in-out;
-
+        transition: all 300ms ease-in-out;
         &:hover {
-          transition: all 0.5s;
+          transition: all 500ms;
           background-color: rgba(8, 8, 8, 0.4);
         }
-
         &:active {
-          transition: all 0.1s;
+          transition: all 100ms;
           background-color: rgba(8, 8, 8, 0.8);
         }
       }
     }
-
     .info {
-      font-family: "SF Pro";
+      @include sans;
       margin: 65px 20px 45px 25px;
       //padding-right: 30px;
       text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
       font-size: 14px;
-
       .title,
       .artist {
         color: $fg;
         font-weight: 600;
       }
-
       .album {
         color: $fg-alt;
         font-weight: 500;
@@ -64,15 +50,13 @@
     .bar {
       trough highlight {
         all: unset;
-        background-image: linear-gradient(to right, $fg, $fg);
+        background-color: $fg-alt;
         transition: all 1s;
-
         &:hover {
-          transition: all 0.3s;
-          background-image: linear-gradient(to right, $dark-green, $dark-green);
+          transition: all 300ms;
+          background-color: $dark-green;
         }
       }
-
       trough {
         all: unset;
         background-color: $gray;
@@ -86,52 +70,44 @@
   .footer {
     background-color: rgba(8, 8, 8, 0.55);
     border-radius: 0px 0px 15px 15px;
-    padding: 10px;
-
+    padding: 4px;
     .volume {
       text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-
       .icon {
-        transition: all 0.5s;
+        transition: all 500ms;
         color: $fg-alt;
         font-size: 22px;
         margin: 0 0 0 10px;
       }
-
       .slider {
         highlight {
           all: unset;
           border-radius: 15px;
           padding: 2px;
-          background: linear-gradient(to right, $fg, $fg);
-          transition: all 0.5s;
-
+          background-color: $fg-alt;
+          transition: all 500ms;
           &:active {
-            transition: all 0.3s;
-            background-image: linear-gradient(to right, $dark-green, $dark-green);
+            transition: all 300ms;
+            background-color: $dark-green;
           }
         }
-
         slider {
-          transition: all 0.3s;
+          transition: all 300ms;
           border-radius: 100%;
           margin: -5px;
         }
-
         trough {
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
           background-color: $gray;
-          border-radius: 15px;
+          @include rounding;
         }
-
         &:hover {
           highlight {
-            transition: all 0.3s;
-            background-image: linear-gradient(to right, $dark-green, $dark-green);
+            transition: all 300ms;
+            background-color: $dark-green;
           }
-
           slider {
-            transition: all 0.3s;
+            transition: all 300ms;
             border-radius: 100%;
             margin: -5px;
             background: $fg;
@@ -139,52 +115,36 @@
         }
       }
     }
-
     .buttons {
       text-shadow: 0px 5px 5px rgba(0, 0, 0, 1);
-
       .toggle {
-        font-family: "JetBrainsMono Nerd Font";
+        @include ubuntu;
         font-size: 40px;
         color: $fg;
-        padding: 0 11px 0 0;
-        transition: all 0.5s;
-        transition: color 0.3s ease;
-
+        transition: all 500ms;
+        transition: color 300ms ease;
         &:hover {
-          color: $dark-pink;
-          transition: all 0.3s;
-        }
-
-        &:active {
-          color: $darker-pink;
+          color: $pink;
+          transition: all 300ms;
         }
       }
-
       .previous,
       .next {
-        font-family: "Material Icons Round";
+        @include material;
         font-size: 30px;
         color: $fg-alt;
-        transition: all 0.5s;
-        transition: color 0.3s ease;
-
+        transition: all 500ms;
+        transition: color 300ms ease;
         &:hover {
-          color: $dark-pink;
-          transition: all 0.3s;
-        }
-
-        &:active {
-          color: $darker-pink;
+          color: $pink;
+          transition: all 300ms;
         }
       }
     }
-
     .time {
-      font-family: "SF Pro";
+      @include sans;
       font-size: 15px;
       text-shadow: 1px 1px 10px rgba(0, 0, 0, 1);
-
       .position {
         color: $fg-alt;
         font-weight: 500;

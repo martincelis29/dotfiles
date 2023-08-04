@@ -1,26 +1,26 @@
 {
   // =================== Configs =====================
   "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace, Ubuntu Nerd Font, 'Material Icons Round'",
-  "editor.fontSize": 14, //*
+  "editor.fontSize": 14,
   "editor.fontLigatures": true,
   "editor.fontVariations": true,
-  "editor.mouseWheelZoom": true, //*
-  "editor.cursorBlinking": "phase", //*
-  "editor.cursorSmoothCaretAnimation": "on", //*
+  "editor.mouseWheelZoom": true,
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.hideCursorInOverviewRuler": true,
   "editor.scrollbar.vertical": "visible",
-  "editor.scrollbar.verticalScrollbarSize": 15, //*
-  "editor.smoothScrolling": true, //*
+  "editor.scrollbar.verticalScrollbarSize": 15,
+  "editor.smoothScrolling": true,
   "editor.overviewRulerBorder": false,
   "editor.guides.indentation": false,
-  "editor.formatOnSave": true, //*
+  "editor.formatOnSave": true,
   "editor.renderWhitespace": "selection",
   "editor.renderLineHighlight": "none",
-  "editor.folding": false, //*
+  "editor.folding": false,
   "editor.occurrencesHighlight": false,
-  "editor.glyphMargin": false, //*
-  "editor.lineHeight": 21, //*
-  "editor.lineNumbers": "on", //*
+  "editor.glyphMargin": false,
+  "editor.lineHeight": 21,
+  "editor.lineNumbers": "on",
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
@@ -28,7 +28,6 @@
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.enabled": false, // hide minimap
-
   "workbench.colorTheme": "Rosé Pine Moon",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "fluent-icons",
@@ -41,23 +40,19 @@
   "workbench.editorAssociations": {
     "*.otb": "default"
   },
-
   "zenMode.hideLineNumbers": false,
   "zenMode.hideTabs": false,
   "zenMode.silentNotifications": false,
-
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorWidth": 2,
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.tabs.defaultIcon": "terminal-bash",
   "terminal.integrated.defaultProfile.linux": "zsh",
-
+  "terminal.integrated.env.linux": {},
   "window.titleBarStyle": "custom",
   "window.title": "${dirty}${activeEditorShort}",
   "window.menuBarVisibility": "toggle",
-
   "breadcrumbs.enabled": false,
-
   // =================== Languages =====================
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
@@ -73,7 +68,8 @@
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[python]": {
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "ms-python.python"
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -88,24 +84,17 @@
   "[xml]": {
     "editor.defaultFormatter": "redhat.vscode-xml"
   },
-
   // =================== Extensions =====================
   "redhat.telemetry.enabled": false,
-
   "indenticator.width": 0.1,
   "indenticator.color.dark": "rgba(255,255,255,0.30)",
-
   "indentRainbow.lightIndicatorStyleLineWidth": 1,
-
   "projectManager.sortList": "Name",
-
   "material-icon-theme.activeIconPack": "react_redux",
   "material-icon-theme.folders.color": "#7E57C2",
   "material-icon-theme.hidesExplorerArrows": true,
   "material-icon-theme.opacity": 0.8,
-
   "liveServer.settings.donotShowInfoMsg": true,
-
   "colorize.languages": [
     "css",
     "sass",
@@ -117,6 +106,7 @@
     "xml",
     "svg",
     "yuck",
-    "toml"
+    "toml",
+    "json"
   ]
 }

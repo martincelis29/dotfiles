@@ -1,0 +1,28 @@
+.calendar {
+  @include sans;
+  @include rounding;
+  @include background;
+  @include border;
+  color: $fg;
+  padding: 0.2em;
+}
+
+calendar {
+  padding: 5px;
+  :selected {
+    color: $pink;
+  }
+  .header {
+    color: $subtext1;
+  }
+  .highlight {
+    color: $maroon;
+    font-weight: bold;
+  }
+  .button {
+    color: $sapphire;
+  }
+  :indeterminate {
+    color: $gray;
+  }
+}

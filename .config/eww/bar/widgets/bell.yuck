@@ -8,9 +8,9 @@
         (button
           :class "bell icon"
           :tooltip "${notifications.count} Notifications"
-          :onclick "${EWW_CMD} close powermenu player & scripts/notifications.py --open & ${EWW_CMD} open-many --toggle background-closer notifications"
+          :onclick "${EWW_CMD} close powermenu calendar player & scripts/notifications.py --open & ${EWW_CMD} open-many --toggle background-closer notifications"
           :onrightclick "dunstctl set-paused toggle"
-          :style "color: ${dnd ? '#dd6777;' : '#ceb188;'} transition: all 0.3s;"
+          :style "color: ${dnd ? '#dd6777;' : '#f9e2af;'} transition: all 0.3s;"
           {dnd ? " " : " "}
         )
       )

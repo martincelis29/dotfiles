@@ -14,7 +14,7 @@
           :scale-y "95%"
           (button
             :class "art"
-            :onclick "${EWW_CMD} close powermenu notifications & ${EWW_CMD} open-many --toggle background-closer player"
+            :onclick "${EWW_CMD} close powermenu calendar notifications & ${EWW_CMD} open-many --toggle background-closer player"
             :style "background-image: url('${music-cover}');"
           )
         )
@@ -23,7 +23,7 @@
         :class "title"
         :limit-width 30
         :tooltip "${music-artist}"
-        :text music-title
+        :text {music-title}
       )
       (revealer
         :transition "slideright"

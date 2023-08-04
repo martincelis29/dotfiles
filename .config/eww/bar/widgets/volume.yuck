@@ -21,7 +21,7 @@
       (revealer
         :transition "slideleft"
         :reveal volume-rev
-        :duration "450ms"
+        :duration "550ms"
         (scale
           :class "bar"
           :value {volume == "muted" ? "0" : volume}

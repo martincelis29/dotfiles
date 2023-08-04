@@ -23,18 +23,19 @@ sleep 1
 sudo pacman -Syyu --noconfirm
 
 echo -e "\e[1;35mInstalling pacman packages\e[0m"
+# bluez bluez-utils blueman brightnessctl  hyprland
 sleep 1
 sudo pacman -S --needed --noconfirm \
-    base base-devel git zsh acpi acpid acpi_call wget kitty linux linux-firmware linux-headers openssh os-prober zip unzip intel-ucode xf86-video-intel vulkan-intel \
-    networkmanager nm-connection-editor network-manager-applet inetutils dnsutils reflector dnsmasq nss-mdns bluez bluez-utils blueman avahi \
+    base base-devel git zsh acpi acpid wget kitty linux linux-firmware linux-headers openssh os-prober zip unzip intel-ucode xf86-video-intel vulkan-intel \
+    networkmanager nm-connection-editor network-manager-applet reflector avahi \
     pipewire pipewire-alsa pipewire-audio pipewire-jack pipewire-pulse wireplumber pamixer alsa-utils sof-firmware \
-    ntfs-3g grub-btrfs rsync mtools dosfstools xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils wpa_supplicant efibootmgr \
+    ntfs-3g rsync mtools dosfstools xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils efibootmgr \
     python python-pybluez python-dotenv python-pip python-pywal python-gobject python-requests dbus-python \
-    qt5ct qt5-imageformats qt5-graphicaleffects qt5-svg qt5-wayland qt6-wayland kvantum gtk2 gtk3 gtk4 gtk-layer-shell libpeas libdbusmenu-gtk3 \
-    wofi dunst hyprland wayland lib32-wayland xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-hyprland \
-    brightnessctl playerctl jq swayidle grim slurp swappy pacman-contrib ripgrep socat \
-    waybar ttf-jetbrains-mono-nerd ttf-ubuntu-nerd papirus-icon-theme capitaine-cursors \
-    swaybg nautilus neovim wl-clipboard polkit-gnome gammastep sushi eog zenity lxappearance
+    qt5ct qt5-imageformats qt5-graphicaleffects qt5-svg gtk3 gtk4 gtk-layer-shell libpeas libdbusmenu-gtk3 \
+    dunst xdg-desktop-portal xdg-desktop-portal-gtk \
+    playerctl jq grim slurp swappy pacman-contrib ripgrep socat \
+    papirus-icon-theme capitaine-cursors nautilus \
+    neovim wl-clipboard polkit-gnome gammastep sushi eog zenity
 
 # Install yay
 if __read_yn "\e[1;33mInstall Yay? \e[0m[Y/n]"; then
@@ -53,13 +54,34 @@ fi
 echo -e "\e[1;35mInstalling yay packages\e[0m"
 sleep 1
 yay -S --needed --noconfirm \
-    swaylock-effects-git hyprpicker-git papirus-folders-git
+    papirus-folders-git
+
+# Install Hyprland
+if __read_yn "\e[1;33mInstall Hyprland? \e[0m[Y/n]"; then
+    if [[ -x $(command -v hyprctl) ]]; then
+        echo -e "\e[1;35mHyprland it's already installed\e[0m"
+    else
+        sudo pacman -S --needed --noconfirm \
+            xdg-desktop-portal-hyprland wayland lib32-wayland qt5-wayland qt6-wayland \
+            swaybg waybar swayidle wofi
+
+        yay -S --needed --noconfirm \
+            swaylock-effects-git hyprpicker-git
+
+        echo -e "\e[1;35mInstalling Hyprland...\e[0m"
+        git clone --recursive https://github.com/hyprwm/Hyprland
+        cd Hyprland
+        sudo make install
+        cd ..
+        echo -e "\e[1;32mHyprland installed\e[0m"
+    fi
+fi
 
 # Opcional Packages
 if __read_yn "\e[1;33mInstall optional packages? \e[0m[Y/n]"; then
     sudo pacman -S --needed --noconfirm \
         firefox discord steam \
-        mpv spotify-launcher gnome-font-viewer gnome-control-center \
+        mpv spotify-launcher font-manager gnome-control-center \
         pavucontrol neofetch bat btop lsd
 
     yay -S --needed --noconfirm \

@@ -12,6 +12,10 @@ get_workspaces() {
     done
 }
 
+workspace_event() {
+    while read -r k v; do workspaces[$k]="$v"; done < <(hyprctl -j workspaces | jq -jr '.[] | .id, " ", .monitor, "\n"')
+}
+
 get_current_workspace() {
     hyprctl monitors -j | jq --raw-output .[0].activeWorkspace.id
     socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 grep '^workspace>>' | stdbuf -o0 awk -F '>>|,' '{print $2}'
@@ -41,6 +45,9 @@ change_current_workspace() {
 case "$1" in
 getWorkspaces)
     get_workspaces
+    ;;
+ge)
+    workspace_event
     ;;
 getCurrentWorkspace)
     get_current_workspace

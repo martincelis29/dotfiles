@@ -14,7 +14,7 @@
       (revealer
         :transition "slideleft"
         :reveal pacman-rev
-        :duration "300ms"
+        :duration "400ms"
         (box
           :space-evenly false
           (label

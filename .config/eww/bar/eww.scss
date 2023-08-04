@@ -11,7 +11,7 @@
 scale trough {
   all: unset;
   background-color: $black;
-  border-radius: 16px;
+  @include rounding;
   min-height: 5px;
   min-width: 80px;
   margin: 0px 0px 0px 5px;
@@ -24,111 +24,90 @@ scale trough {
   .icon {
     color: $purple;
     font-size: 18px;
-    font-family: "Ubuntu Nerd Font";
+    @include ubuntu;
     margin: 0 0 0 12px;
-    transition: all 0.1s;
-    transition: color 0.5s ease;
-
-    &:hover {
-      color: $dark-purple;
-      transition: all 0.3s;
-    }
+    transition: all 100ms;
+    transition: color 500ms ease;
   }
 }
 
-// Clock
+// Clock & Date
 .clock {
   background-color: $bg-alt;
-  padding: 0 18px 0 20px;
   border-radius: 10px;
-
+  padding: 0 18px 0 20px;
   .icon {
     color: $magenta;
     font-size: 15px;
-    font-family: "Material Icons Round";
+    @include material;
     margin: 0 1px 0 0;
   }
-
   .time {
     color: $magenta;
     font-size: 17px;
-    font-family: "Ubuntu Nerd Font";
+    @include ubuntu;
     font-weight: bold;
     margin: 0 2px 0 -1px;
   }
-
   .AMPM {
     color: $magenta;
     font-size: 14px;
-    font-family: "Ubuntu Nerd Font";
+    @include ubuntu;
     font-weight: bold;
     margin: 1px 0 0 -1px;
   }
-
-  .date {
-    .icon {
-      color: $cyan;
-      font-size: 15px;
-      font-family: "Font Awesome 6 Free";
-      margin: 0 -2px 0 10px;
-    }
-
-    .label {
-      color: $cyan;
-      font-size: 17px;
-      font-family: "Ubuntu Nerd Font";
-      font-weight: bold;
-      margin: 0 4px 0 6px;
-      transition: all 0.1s;
-      transition: color 0.5s ease;
-    }
+}
+.date {
+  padding: 0 18px 0 20px;
+  .icon {
+    color: $cyan;
+    @include awesome;
+    font-size: 15px;
+    margin: 0 0 0 12px;
+  }
+  .text {
+    color: $cyan;
+    font-size: 17px;
+    @include ubuntu;
+    font-weight: bold;
+    margin: 0 0 0 4px;
   }
 }
 
 // Music
 .music {
   .art {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    @include background;
     min-height: 25px;
     min-width: 30px;
     border-radius: 20px;
+    transition: all 500ms ease-in-out;
   }
-
   .title {
     color: $green;
     font-size: 10pt;
-    font-family: "SF Pro";
+    @include sans;
     font-weight: bold;
   }
-
   .toggle-icon {
-    font-family: "Ubuntu Nerd Font";
+    @include ubuntu;
     font-size: 21px;
     margin: 0 -2px 0 -2px;
   }
-
   .previous-icon,
   .next-icon {
-    font-family: "Material Icons Round";
+    @include material;
     font-size: 19px;
   }
-
   .previous-icon,
   .next-icon,
   .toggle-icon {
-    color: $blue-gray;
-    transition: all 0.5s;
-    transition: color 0.3s ease;
-
+    color: $subtext0;
+    transition: all 500ms;
+    transition: color 300ms ease;
     &:hover {
-      color: $dark-pink;
-      transition: all 0.3s;
-    }
-
-    &:active {
-      color: $darker-pink;
+      color: $pink;
+      transition: all 300ms;
     }
   }
 }
@@ -136,30 +115,25 @@ scale trough {
 /* =================== CENTER WIDGETS =================== */
 // Workspaces
 .workspaces {
-  color: $dark-gray;
-  font-family: "Ubuntu Nerd Font, Font Awesome 6 Free";
-  // background-color: $bg-alt;
+  color: $surface0;
+  @include ubuntu;
   border-radius: 10px;
-  transition: all 0.3s;
-  transition: color 0.5s ease;
-
+  transition: all 300ms;
+  transition: color 500ms ease;
   .entry {
     padding: 7px 10px;
-
     &:hover {
-      color: $blue-gray;
+      color: $subtext0;
     }
   }
-
   .occupied,
   .empty {
-    color: $dark-gray;
-    transition: all 0.3s;
+    color: $surface0;
+    transition: all 300ms;
   }
-
   .current {
-    color: $blue-gray;
-    transition: all 0.3s;
+    color: $subtext0;
+    transition: all 300ms;
   }
 }
 
@@ -170,16 +144,11 @@ scale trough {
     color: rgba(5, 5, 5, 0);
     font-size: 26px;
     margin: 2px 0 0 0;
-    transition: all 0.1s;
-    transition: color 0.5s ease;
-
+    transition: all 100ms;
+    transition: color 500ms ease;
     &:hover {
-      color: $blue-gray;
-      transition: all 0.3s;
-    }
-
-    &:active {
-      color: $dark-gray;
+      color: $text;
+      transition: all 300ms;
     }
   }
 }
@@ -190,31 +159,26 @@ scale trough {
     color: $red;
     background-color: $black;
   }
-
   .inside {
     padding: 12px;
   }
-
   .label {
-    color: $fg;
-    font-family: "Ubuntu Nerd Font";
+    color: $fg-alt;
+    @include sans;
     font-weight: 500;
   }
 }
-
 .memory {
   .progress {
     color: $magenta;
     background-color: $black;
   }
-
   .inside {
     padding: 12px;
   }
-
   .label {
-    color: $fg;
-    font-family: "Ubuntu Nerd Font";
+    color: $fg-alt;
+    @include sans;
     font-weight: 500;
   }
 }
@@ -228,23 +192,22 @@ scale trough {
 
 .bell {
   &.icon {
-    color: $fg-alt;
+    color: $fg;
     font-size: 14px;
-    font-family: "JetBrainsMono Nerd Font";
+    @include ubuntu;
   }
 }
 
 .pacman {
   .icon {
-    color: $yellow;
-    font-family: "Ubuntu Nerd Font";
+    color: $dark-yellow;
+    @include ubuntu;
     font-size: 16px;
   }
-
   .label {
     color: $fg;
     font-size: 15px;
-    font-family: "SF Pro";
+    @include sans;
     font-weight: bold;
     margin: 0 0 0 5px;
   }
@@ -253,20 +216,18 @@ scale trough {
 .volume {
   .icon {
     font-size: 20px;
-    font-family: "Ubuntu Nerd Font";
-    transition: all 0.5s;
+    @include material;
+    transition: all 500ms;
   }
-
   .bar {
     trough highlight {
-      background: $pink;
+      background: $mauve;
       min-height: 0.3em;
-      border-radius: 10px;
+      @include rounding;
     }
-
     slider {
       &:hover {
-        background: $pink;
+        background: $mauve;
         border-radius: 100%;
         margin: -5px;
       }
@@ -276,15 +237,13 @@ scale trough {
 
 .network {
   .icon {
-    transition: all 0.5s;
     font-size: 18px;
-    font-family: "Ubuntu Nerd Font";
+    transition: all 500ms;
   }
-
   .label {
     color: $fg;
     font-size: 15px;
-    font-family: "SF ";
+    @include sans;
     font-weight: bold;
     margin: 0 0 0 5px;
   }
@@ -293,18 +252,10 @@ scale trough {
 // Powermenu
 .power {
   .icon {
-    color: $red;
+    color: $dark-red;
     font-size: 18px;
     margin: 2px 12px 0 0;
-    transition: all 0.3s;
-    transition: color 0.5s ease;
-
-    &:hover {
-      color: $dark-red;
-    }
-
-    &:active {
-      color: $darker-red;
-    }
+    transition: all 300ms;
+    transition: color 500ms ease;
   }
 }

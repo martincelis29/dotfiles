@@ -7,7 +7,7 @@
       :class "icon"
       :tooltip "Powermenu"
       :valign "center"
-      :onclick "${EWW_CMD} close player & ${EWW_CMD} open-many --toggle background-closer powermenu"
+      :onclick "${EWW_CMD} close player notifications calendar & ${EWW_CMD} open-many --toggle background-closer powermenu"
       ""
     )
   )

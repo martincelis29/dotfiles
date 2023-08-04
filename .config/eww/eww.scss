@@ -1,35 +1,46 @@
-$bg: #0f0f0f;
-$bg-alt: #191919;
-$fg: #f0f0f0;
-$fg-alt: #cacaca;
-$black: #262626;
-$gray: #4c4c4c;
-$dark-gray: #313244;
-$red: #dd6777;
-$dark-red: #91444e;
-$darker-red: #53262c;
-$green: #a6e3a1;
-$dark-green: #1db954;
-$yellow: #ceb188;
-$blue: #a39ec4;
-$blue-gray: #a6adc8;
-$magenta: #c49ec4;
-$cyan: #9ec3c4;
-$pink: #cba6f7;
-$dark-pink: #ac74ac;
-$darker-pink: #3d293d;
-$purple: #803dc0;
-$dark-purple: #582c81;
-$white: $fg;
+* {
+  all: unset;
+  transition: 200ms ease-out;
+}
+
+@import "./colors.scss";
+
+@mixin background {
+  background-color: $bg;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin border {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+@mixin rounding {
+  border-radius: 15px;
+}
+
+@mixin ubuntu {
+  font-family: "Ubuntu Nerd Font";
+}
+@mixin sans {
+  font-family: "Product Sans", Roboto, sans-serif;
+}
+@mixin material {
+  font-family: "Material Icons Round";
+}
+@mixin awesome {
+  font-family: "Font Awesome 6 Free";
+}
 
 tooltip {
-  font-family: "SF Pro";
+  @include sans;
   font-weight: 500;
   font-size: 1rem;
   color: $fg-alt;
-  background-color: $bg;
-  border: 3px solid $bg;
-  border-radius: 0.5rem;
+  background-color: $bg1;
+  @include border;
+  border-radius: 10px;
 }
 
 @import "./bar/eww.scss";
@@ -37,3 +48,4 @@ tooltip {
 @import "./powermenu/eww.scss";
 @import "./notifications/eww.scss";
 @import "./volume/eww.scss";
+@import "./calendar/eww.scss";

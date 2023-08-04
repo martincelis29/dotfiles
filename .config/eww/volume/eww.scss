@@ -1,20 +1,19 @@
 .volume-popup {
-  font-family: "Font Awesome 6 Pro Solid";
-  background: rgba(15, 14, 18, 0.85);
+  @include background;
+  @include border;
   border-radius: 40px;
   padding: 20px 30px 20px 0;
-  transition: all 0.5s;
-
+  transition: all 500ms;
   .icon {
+    @include material;
     font-size: 2.2rem;
     padding: 0 0.8rem;
     text-shadow: 0px 0px 10px $bg;
   }
-
   .scale {
     trough highlight {
       all: unset;
-      background: linear-gradient(#cba6f7, #cba6f7);
+      background-color: $mauve;
       border-radius: 20px;
     }
     trough {

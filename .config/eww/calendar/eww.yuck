@@ -1,0 +1,20 @@
+(defwidget schedule []
+  (box
+    :class "calendar text"
+    (calendar)
+  )
+)
+
+(defwindow calendar
+  :monitor 0
+  :stacking "fg"
+  :wm-ignore false
+  :windowtype "dock"
+  :geometry (geometry
+    :x "1%"
+    :y "0.5%"
+    :width "0px"
+    :height "0px"
+  :anchor "top left")
+  (schedule)
+)

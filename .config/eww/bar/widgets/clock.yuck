@@ -3,41 +3,52 @@
   (eventbox
     :onhover "${EWW_CMD} update date-rev=true"
     :onhoverlost "${EWW_CMD} update date-rev=false"
-    (box
-      :space-evenly false
-      :spacing 6
-      :class "clock"
-      (label
-        :class "icon"
-        :text ""
-      )
-      (label
-        :class "time"
-        :text {formattime(EWW_TIME, "%I : %M", "America/Santiago")}
-      )
-      (label
-        :class "AMPM"
-        :text {formattime(EWW_TIME, "%p", "America/Santiago")}
+    
+    
+    (overlay
+      (box
+        :space-evenly false
+        :spacing 6
+        :class "clock"
+        (label
+          :class "icon"
+          :style {date-rev ? "color: rgba(0,0,0,0); text-shadow: none;" : ""}
+          :text ""
+        )
+        (label
+          :class "time"
+          :style {date-rev ? "color: rgba(0,0,0,0); text-shadow: none;" : ""}
+          :text {formattime(EWW_TIME, "%I : %M", "America/Santiago")}
+        )
+        (label
+          :class "AMPM"
+          :style {date-rev ? "color: rgba(0,0,0,0); text-shadow: none;" : ""}
+          :text {formattime(EWW_TIME, "%p", "America/Santiago")}
+        )
       )
       (revealer
-        :transition "slideleft"
         :reveal date-rev
-        :duration "500ms"
-        (box
-          :space-evenly false
-          :spacing 6
-          :class "date"
-          (label
-            :class "icon"
-            :text ""
-          )
-          (label
-            :class "label"
-            :valign "center"
-            :text {formattime(EWW_TIME, "%b %d", "America/Santiago")}
+        :transition "crossfade"
+        :duration "650ms"
+        (eventbox
+          :onclick "${EWW_CMD} open-many background-closer calendar"
+          (box
+            :class "date"
+            :space-evenly false
+            :spacing 6
+            (label
+              :class "icon"
+              :text ""
+            )
+            (label
+              :class "text"
+              :justify "center"
+              :text {formattime(EWW_TIME, "%b %d", "America/Santiago")}
+            )
           )
         )
       )
     )
   )
 )
+

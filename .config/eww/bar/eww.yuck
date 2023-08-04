@@ -4,10 +4,10 @@
 (include "bar/widgets/workspaces.yuck")
 (include "bar/widgets/tray.yuck")
 (include "bar/widgets/system-stats.yuck")
+(include "bar/widgets/bell.yuck")
 (include "bar/widgets/pacman.yuck")
 (include "bar/widgets/volume.yuck")
 (include "bar/widgets/network.yuck")
-(include "bar/widgets/bell.yuck")
 (include "bar/widgets/powermenu.yuck")
 
 ;; =================== LEFT WIDGETS =====================
@@ -63,7 +63,6 @@
   :exclusive true
   :windowtype "dock"
   :monitor 0
-  :namespace "bar"
   :geometry (geometry
     :x "0%"
     :y "0.4%"

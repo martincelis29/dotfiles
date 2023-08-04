@@ -4,7 +4,7 @@
     :class "player"
     :space-evenly false
     :orientation "v"
-    :style "background-image:linear-gradient(rgba(18, 18, 18, 0.9)), url('${music-cover}')"
+    :style "background-image:linear-gradient(rgba(18, 18, 18, 0.91)), url('${music-cover}');"
     (box
       :class "header"
       :space-evenly false
@@ -13,7 +13,7 @@
         :hexpand "false"
         :vexpand "false"
         :halign "end"
-        :style "background-image: url('${music-cover}')"
+        :style "background-image: url('${music-cover}');"
         (eventbox
           :cursor "pointer"
           (button
@@ -81,7 +81,7 @@
         :halign "start"
         (label
           :class "icon"
-          :style {music-current-volume == 0 ? "color: #dd6777;" : "color: $fg-alt;"}
+          :style {music-current-volume == 0 ? "color: #dd6777;" : "color: #cacaca;"}
           :tooltip "${music-current-volume}%"
           :text {music-current-volume == 0 ? "" : music-current-volume < 30 ? "" : music-current-volume < 60 ? "" : ""}
         )
@@ -94,7 +94,7 @@
           :value music-current-volume
           :tooltip "${music-current-volume}%"
           :halign "start"
-          :onchange "scripts/media.sh volume {}"
+          :onchange "scripts/media.sh --volume {}"
         )
       )
       (box

@@ -241,6 +241,10 @@
 
 ;; =================== NOTIFICATIONS WINDOW =====================
 (defwindow notifications
+  :stacking "fg"
+  :wm-ignore false
+  :exclusive true
+  :windowtype "dock"
   :monitor 0
   :geometry (geometry
     :x "1%"

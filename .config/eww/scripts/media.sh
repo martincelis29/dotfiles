@@ -307,5 +307,4 @@ case "$1" in
 "stop") stop ;;
 "next") next ;;
 "prev") prev ;;
-*) cover ;;
 esac

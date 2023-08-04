@@ -1,28 +1,20 @@
-* {
-  all: unset;
-}
-
 .powermenu {
-  // background-color: $bg;
-  background: rgba(15, 14, 18, 0.7);
-  border-radius: 12px;
+  @include background;
+  @include rounding;
   padding: 20px;
-
   .profile {
-    border-radius: 15px;
+    @include rounding;
     padding: 20px;
     .img {
-      border-radius: 15px;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+      @include rounding;
+      @include background;
       min-height: 200px;
       min-width: 200px;
       box-shadow: -1px 1px 10px 5px rgba(0, 0, 0, 0.5);
     }
     .info {
       color: $fg;
-      font-family: "SF Pro";
+      @include sans;
       .name {
         font-size: 30px;
         font-weight: bold;
@@ -42,30 +34,30 @@
     .logout,
     .reboot,
     .suspend {
-      font-family: "Font Awesome 6 Free";
+      @include awesome;
       font-size: 80px;
       border-radius: 30px;
       min-width: 130px;
       min-height: 130px;
       padding: 20px;
-      background-color: rgba(25, 25, 25, 0.5);
-      transition: all 0.2s;
+      @include background;
+      transition: all 200ms;
       &:hover {
-        transition: all 0.3s;
-        background-color: rgba(38, 38, 38, 0.5);
+        transition: all 300ms;
+        background-color: $bg-alt;
       }
     }
     .shutdown {
-      color: $red;
+      color: $dark-red;
     }
     .logout {
-      color: $magenta;
+      color: $pink;
     }
     .reboot {
       color: $green;
     }
     .suspend {
-      color: $yellow;
+      color: $dark-yellow;
     }
   }
 }
